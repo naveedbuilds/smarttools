@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <meta name="keywords" content="free online tools, image compressor, QR code generator, password generator, word counter">
+
+  <meta name="author" content="SmartTools">
+
+  <meta name="robots" content="index, follow">
+
+  <meta name="theme-color" content="#0b1120">
+
+  <title>SmartTools - Free Online Image Compressor, QR Code & More</title>
+<meta name="description" content="Use SmartTools for free online tools including image compressor, QR code generator, secure password generator and word counter. Fast, simple and easy to use.">
+  <meta property="og:title" content="SmartTools - Free Online Tools">
+
+<meta property="og:description" content="Use free online tools to compress images, generate QR codes, create passwords and count words.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartTools">
+<meta property="og:locale" content="en_US">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <nav class="navbar">
+
+  <a href="#" class="logo">
+    <img src="./favicon.png" alt="SmartTools Logo">
+    <span>SmartTools.</span>
+  </a>
+
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    aria-label="Open navigation menu"
+    aria-expanded="false">
+    ☰
+  </button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#tools">Tools</a>
+    <a href="#about">About</a>
+  </div>
+
+</nav>
+</header>
+  <main>
+    <section class="hero">
+      <h1>Smart Tools for Your <span>Daily Work</span></h1>
+      <p>Free, simple and powerful online tools.
+         Get your work done faster.</p>
+      <a href="#tools" class="hero-btn">Explore Tools</a>
+    </section>
+
+    <section id="tools" class="tools-section">
+      <h2>Explore Our Tools</h2>
+      <p>Everything you need, in one place.</p>
+
+      <div class="tools-grid">
+
+        <div class="tool-card">
+          <h3>Image Compressor</h3>
+          <p>Reduce image file size easily.</p>
+          <a href="#image-tool">Use Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>QR Code Generator</h3>
+          <p>Create QR codes from any link.</p>
+          <a href="#qr-tool">Use Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Password Generator</h3>
+          <p>Generate strong random passwords.</p>
+          <a href="#password-tool">Use Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Word Counter</h3>
+          <p>Count words and characters instantly.</p>
+         <a href="#word-tool">Use Tool</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="qr-tool" id="qr-tool">
+      <h2>QR Code Generator</h2>
+      <p>Enter your text or URL to create a QR code.</p>
+
+      <input
+        type="text"
+        id="qrInput"
+        placeholder="Enter a website link or text..."
+      >
+
+      <button id="generateQR">Generate QR Code</button>
+
+      <p id="qrMessage" aria-live="polite"></p>
+
+      <div id="qrcode"></div>
+
+      <button id="downloadQR" hidden>Download QR Code</button>
+    </section>
+    
+<section class="password-tool" id="password-tool">
+  <h2>Password Generator</h2>
+  <p>Create a strong and secure password.</p>
+
+  <label for="passwordLength">Password Length:</label>
+  <input
+    type="number"
+    id="passwordLength"
+    min="8"
+    max="64"
+    value="16"
+  >
+
+  <div class="password-options">
+    <label>
+      <input type="checkbox" id="includeNumbers" checked>
+      Include Numbers
+    </label>
+
+    <label>
+      <input type="checkbox" id="includeSymbols" checked>
+      Include Symbols
+    </label>
+
+    <label>
+      <input type="checkbox" id="includeUppercase" checked>
+      Include Uppercase
+    </label>
+  </div>
+
+  <button id="generatePassword">Generate Password</button>
+
+  <div class="password-result">
+    <input
+      type="text"
+      id="passwordOutput"
+      placeholder="Your password will appear here"
+      readonly
+    >
+    <button id="copyPassword">Copy</button>
+  </div>
+
+  <p id="passwordMessage" aria-live="polite"></p>
+</section>
+
+
+<section class="word-tool" id="word-tool">
+  <h2>Word Counter</h2>
+  <p>Enter your text to count words and characters.</p>
+
+  <textarea
+    id="wordInput"
+    placeholder="Start typing or paste your text here..."
+    rows="7"
+  ></textarea>
+
+  <div class="word-stats">
+    <div>
+      <h3 id="wordCount">0</h3>
+      <p>Words</p>
+    </div>
+
+    <div>
+      <h3 id="characterCount">0</h3>
+      <p>Characters</p>
+    </div>
+
+    <div>
+      <h3 id="sentenceCount">0</h3>
+      <p>Sentences</p>
+    </div>
+  </div>
+
+  <button id="clearText">Clear Text</button>
+</section>
+
+
+<section class="image-tool" id="image-tool">
+  <h2>Image Compressor</h2>
+  <p>Upload an image and reduce its file size.</p>
+
+  <label for="imageInput">Choose an Image:</label>
+  <input
+    type="file"
+    id="imageInput"
+    accept="image/*"
+  >
+
+  <p id="originalSize">Original size: Not selected</p>
+
+  <label for="imageQuality">
+    Compression Quality:
+    <span id="qualityValue">80%</span>
+  </label>
+
+  <input
+    type="range"
+    id="imageQuality"
+    min="10"
+    max="100"
+    value="80"
+  >
+
+  <button id="compressImage" disabled>
+    Compress Image
+  </button>
+
+  <p id="imageMessage" aria-live="polite"></p>
+
+  <div class="image-preview">
+    <img id="compressedPreview" alt="Compressed image preview" hidden>
+  </div>
+
+  <p id="compressedSize"></p>
+
+  <a id="downloadImage" download="smarttools-compressed.webp" hidden>
+    Download Compressed Image
+  </a>
+</section>
+
+
+  </main>
+<section class="about-section" id="about">
+  <div class="about-content">
+    <h2>About SmartTools</h2>
+
+    <p>
+      SmartTools is a simple collection of free online tools
+      designed to help you complete everyday tasks quickly and easily.
+    </p>
+
+    <p>
+      Use the Image Compressor, QR Code Generator,
+      Password Generator, and Word Counter — all in one place.
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-content">
+
+    <div class="footer-brand">
+      <h2>SmartTools.</h2>
+      <p>Free, simple and useful online tools for your daily work.</p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <a href="#tools">Tools</a>
+      <a href="#about">About</a>
+      <a href="#image-tool">Image Compressor</a>
+      <a href="#qr-tool">QR Generator</a>
+    </div>
+
+    <div class="footer-links">
+      <h3>More Tools</h3>
+      <a href="#password-tool">Password Generator</a>
+      <a href="#word-tool">Word Counter</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 SmartTools. All rights reserved.</p>
+  </div>
+ 
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

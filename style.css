@@ -827,3 +827,20 @@ textarea:focus-visible {
     padding: 8px;
   }
 }
+.creator-credit {
+  text-align: center;
+  margin-top: 20px;
+  padding: 15px;
+  color: #aab6c8;
+  font-size: 14px;
+}
+
+.creator-credit a {
+  color: #38bdf8;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.creator-credit a:hover {
+  text-decoration: underline;
+}

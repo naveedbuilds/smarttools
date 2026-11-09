@@ -844,3 +844,20 @@ textarea:focus-visible {
 .creator-credit a:hover {
   text-decoration: underline;
 }
+
+.hero-credit {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  color: #aab6c8;
+  font-size: 14px;
+}
+
+.hero-credit a {
+  color: #38bdf8;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hero-credit a:hover {
+  text-decoration: underline;
+}

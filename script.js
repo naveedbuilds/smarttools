@@ -310,12 +310,25 @@ downloadImage.download = imageFile.name;
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
-menuToggle.onclick = function () {
+menuToggle.addEventListener("click", function () {
   navLinks.classList.toggle("active");
 
-  if (navLinks.classList.contains("active")) {
-    menuToggle.textContent = "✕";
-  } else {
+  const isOpen = navLinks.classList.contains("active");
+
+  menuToggle.textContent = isOpen ? "✕" : "☰";
+  menuToggle.setAttribute("aria-expanded", isOpen);
+  menuToggle.setAttribute(
+    "aria-label",
+    isOpen ? "Close navigation menu" : "Open navigation menu"
+  );
+});
+
+// Close menu when a navigation link is clicked
+navLinks.querySelectorAll("a").forEach(function (link) {
+  link.addEventListener("click", function () {
+    navLinks.classList.remove("active");
     menuToggle.textContent = "☰";
-  }
-};
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation menu");
+  });
+});
